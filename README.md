@@ -45,7 +45,7 @@ BN-Inception:我都对0.01和0.001的测试率做了测试。但是按照原论�
 
 <figure class="half">
 <img src="./img/BN-inception-train1e-5.png" style="zoom:50%">
-<img src="./img/BN-Inception-train5e-5.png" style="zoom:50%">
+<img src="./img/BN-inception-train5e-5.png" style="zoom:50%">
 </figure>
 
 ## 在CIFAR10上的正确率
