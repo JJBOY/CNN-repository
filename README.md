@@ -45,6 +45,7 @@ BN-Inception:我都对0.01和0.001的测试率做了测试。但是按照原论�
 <img src=".\img\BN-Inception-train1e-5.png" style="zoom:50%">
 <img src=".\img\BN-Inception-train5e-5.png" style="zoom:50%">
 </figure>
+
 ## 在CIFAR10上的正确率
 
 这里我都是娶了最好的结果，同一模型还有更细致的对比实验，详情参见[实验对比](#jump1)。
