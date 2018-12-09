@@ -1,10 +1,12 @@
-[TOC]
+
 
 # 经典CNN的复现
 
 包括VGG、BN-VGG、Inception-v1、BN-Inception、Inception-v3、resnet-v1、resnet-v2等等。适用于新手学习入门CNN。
 
 持续更新...
+
+NOTE：github貌似不支持图片并列。所以下面左右图自己理解为上下图。
 
 ## <span id="jump1">实验对比</span>
 
