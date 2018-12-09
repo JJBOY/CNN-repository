@@ -1,10 +1,10 @@
+[TOC]
+
 # 经典CNN的复现
 
 包括VGG、BN-VGG、Inception-v1、BN-Inception、Inception-v3、resnet-v1、resnet-v2等等。适用于新手学习入门CNN。
 
 持续更新...
-
-[TOC]
 
 ## <span id="jump1">实验对比</span>
 
@@ -44,8 +44,8 @@ Inception：
 BN-Inception:我都对0.01和0.001的测试率做了测试。但是按照原论文中设置weight-decay=0.00001怎么也到不了90%以上的正确率，所以我设置了weight-decay分别为1e-5(左图)、5e-5(右图)。这个结果比较有意思，左图不同学习率最终结果没什么差别，说明加了BN之后确实对学习率有一定的容忍性。右图的差别就大了，我个人分析应该是BN并不具备正则的作用，所以还是得到额外的正则项来防止过拟合，但是这次学习率的影响又比较大了，这我还不知道怎么解释，我猜想是因为学习率太小，被正则项限制之后欠拟合了，但是这还需要更多的实验去证明。
 
 <figure class="half">
-<img src=".\img\BN-Inception-train1e-5.png" style="zoom:50%">
-<img src=".\img\BN-Inception-train5e-5.png" style="zoom:50%">
+<img src="./img/BN-inception-train1e-5.png" style="zoom:50%">
+<img src="./img/BN-Inception-train5e-5.png" style="zoom:50%">
 </figure>
 
 ## 在CIFAR10上的正确率
