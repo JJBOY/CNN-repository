@@ -1,4 +1,4 @@
-
+[TOC]
 
 # 经典CNN的复现
 
@@ -6,11 +6,13 @@
 
 持续更新...
 
-NOTE：github貌似不支持图片并列。所以下面左右图自己理解为上下图。
+
 
 ## <span id="jump1">实验对比</span>
 
 在__CIFAI10__上的测试结果：
+
+### ResNet：
 
 这里是原论文中描述的实现18,34,50,101,154层resnet-v1的效果，忘记加标记了,左边是18和34层。右边是50,101,154层。层数越多acc越低。
 
@@ -25,11 +27,12 @@ NOTE：github貌似不支持图片并列。所以下面左右图自己理解为�
 <img src=".\img\resnet302.png" style="zoom:50%">
 <img src=".\img\resnetv2_302.png" style="zoom:50%">
 </figure>
+
 可以看到随着网络加深，v1版本的正确率基本不变了，但是v2版本的还有微小的提升。而且横向对比，ResNet-v2也更有优势。
 
 
 
-VGG16：
+### VGG16：
 
 <figure class="half">
 <img src=".\img\vgg16.png" style="zoom:50%">
@@ -41,24 +44,35 @@ vgg16_bn初始学习率0.1，vgg初始学习率为0.01
 
 
 
-Inception：
+### Inception：
 
-BN-Inception:我都对0.01和0.001的测试率做了测试。但是按照原论文中设置weight-decay=0.00001怎么也到不了90%以上的正确率，所以我设置了weight-decay分别为1e-5(左图)、5e-5(右图)。这个结果比较有意思，左图不同学习率最终结果没什么差别，说明加了BN之后确实对学习率有一定的容忍性。右图的差别就大了，我个人分析应该是BN并不具备正则的作用，所以还是得到额外的正则项来防止过拟合，但是这次学习率的影响又比较大了，这我还不知道怎么解释，我猜想是因为学习率太小，被正则项限制之后欠拟合了，但是这还需要更多的实验去证明。
+#### BN-Inception:
+
+我都对0.01和0.001的测试率做了测试。但是按照原论文中设置weight-decay=0.00001怎么也到不了90%以上的正确率，所以我设置了weight-decay分别为1e-5(左图)、5e-5(右图)。这个结果比较有意思，左图不同学习率最终结果没什么差别，说明加了BN之后确实对学习率有一定的容忍性。右图的差别就大了，我个人分析应该是BN并不具备正则的作用，所以还是得到额外的正则项来防止过拟合，但是这次学习率的影响又比较大了，这我还不知道怎么解释，我猜想是因为学习率太小，被正则项限制之后欠拟合了，但是这还需要更多的实验去证明。
 
 <figure class="half">
-<img src="./img/BN-inception-train1e-5.png" style="zoom:50%">
-<img src="./img/BN-inception-train5e-5.png" style="zoom:50%">
+<img src=".\img\BN-Inception-train1e-5.png" style="zoom:50%">
+<img src=".\img\BN-Inception-train5e-5.png" style="zoom:50%">
 </figure>
+
+#### Inception-v3
+
+比BN-Inception效果稍好。
+
+![Inception-v3](./img/Inception-v3.png)s
+
+
 
 ## 在CIFAR10上的正确率
 
 这里我都是娶了最好的结果，同一模型还有更细致的对比实验，详情参见[实验对比](#jump1)。
 
-| MODEL | ACCURACY |
-| :---: | :---: |
-| VGG16 | 90.06% |
-| BN-VGG16 | 92.31% |
-| BN-Inception | 92.41% |
-| ResNet-v1 | 93.54% |
-| ResNet-v2 | 95.35% |
+|    MODEL     | ACCURACY |
+| :----------: | :------: |
+|    VGG16     |  90.06%  |
+|   BN-VGG16   |  92.31%  |
+| BN-Inception |  92.41%  |
+| Inception-v3 |  92.94%  |
+|  ResNet-v1   |  93.54%  |
+|  ResNet-v2   |  95.35%  |
 
