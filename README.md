@@ -7,6 +7,20 @@
 持续更新...
 
 
+## 在CIFAR10上的正确率
+
+这里我都是最好的结果，同一模型还有更细致的对比实验，详情参见[实验对比](#jump1)。
+
+|    MODEL     | ACCURACY |
+| :----------: | :------: |
+|    VGG16     |  90.06%  |
+|   BN-VGG16   |  92.31%  |
+| BN-Inception |  92.41%  |
+| Inception-v3 |  92.94%  |
+|  ResNet-v1   |  93.54%  |
+|  ResNet-v2   |  95.35%  |
+|  DenseNet    |  94.13   |
+
 
 ## <span id="jump1">实验对比</span>
 
@@ -59,20 +73,16 @@ vgg16_bn初始学习率0.1，vgg初始学习率为0.01
 
 比BN-Inception效果稍好。
 
-![Inception-v3](./img/Inception-v3.png)s
+![Inception-v3](./img/Inception-v3.png)
+
+
+#### DenseNet
+
+![Inception-v3](./img/DenseNet45.png)
+
+效果比resNet v1稍好，比resnet v2差一点。而且我加到了85层之后结果不再上升，由于不同层之间feature map的累加，网络层数增加会导致计算量飞速增加。不过可以看到的是DenseNet的收敛速度非常快，应该是梯度传播比较顺利的原因。
 
 
 
-## 在CIFAR10上的正确率
 
-这里我都是娶了最好的结果，同一模型还有更细致的对比实验，详情参见[实验对比](#jump1)。
-
-|    MODEL     | ACCURACY |
-| :----------: | :------: |
-|    VGG16     |  90.06%  |
-|   BN-VGG16   |  92.31%  |
-| BN-Inception |  92.41%  |
-| Inception-v3 |  92.94%  |
-|  ResNet-v1   |  93.54%  |
-|  ResNet-v2   |  95.35%  |
 
